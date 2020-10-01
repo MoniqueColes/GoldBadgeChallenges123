@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02_Claims
+namespace _02_ClaimsUI
 {
-    public class Class1
+    class ProgramUI
     {
     }
 }

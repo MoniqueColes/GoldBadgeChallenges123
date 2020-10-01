@@ -9,12 +9,7 @@ namespace _01_CafeTest
     public class MenuTest
     {
         [TestMethod]
-        public void MenuContentInfo()
-        {
-            MenuContent dishObject = new MenuContent("#1","Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
-
-            MenuContent dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
-        }
+        
         //Add a new object
         public void AddToRepo_ShouldGetCorrectBool()
         {
