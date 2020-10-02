@@ -8,9 +8,9 @@ namespace _01_Cafe
 {
      public class MenuRepo
     {
-        //Create
+        //new content
         protected readonly List<MenuContent> _contentRepo = new List<MenuContent>();
-        //Create
+        //add new content
         public bool AddContentToRepo(MenuContent content)
         {
             int startingCount = _contentRepo.Count;
@@ -19,7 +19,7 @@ namespace _01_Cafe
             return wasAdded;
         }
 
-        //Read
+        //show menu
         public List<MenuContent> GetContents()
         {
             return _contentRepo;
@@ -37,7 +37,7 @@ namespace _01_Cafe
             return null;
         }
 
-        //Delete
+        //delete items
         public bool DeleteExistingContent(MenuContent existingContent)
         {
             bool deleteResult = _contentRepo.Remove(existingContent);

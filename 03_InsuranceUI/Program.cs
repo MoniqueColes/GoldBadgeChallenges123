@@ -10,6 +10,8 @@ namespace _03_InsuranceUI
     {
         static void Main(string[] args)
         {
+            ProgramUI ui = new ProgramUI();
+            ui.RunMenu();
         }
     }
 }

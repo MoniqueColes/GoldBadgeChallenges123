@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02_Claims
+namespace _03_Insurance
 {
-    class ClaimRepo
+    public class BadgeMethods
     {
-
-        
-
-
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03_Insurance
+namespace _03_InsuranceUI
 {
-    public class Class1
+    class ProgramUI
     {
     }
 }

@@ -157,10 +157,10 @@ namespace _01_CafeUI
 
         private void SeedContent()
         {
-            MenuContent dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
-            _menuRepo.AddContentToRepo(dishObject);
-            MenuContent dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
-            _menuRepo.AddContentToRepo(dishObject2);
+            MenuContent _dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
+            _menuRepo.AddContentToRepo(_dishObject);
+            MenuContent _dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
+            _menuRepo.AddContentToRepo(_dishObject2);
         }
 
     }

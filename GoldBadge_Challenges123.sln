@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_ClaimsTest", "02_ClaimsT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_KomodoInsurance", "03_KomodoInsurance", "{AAB38336-A85E-49BB-B2FD-DDE5AF59E5F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_Insurance", "03_Insurance\03_Insurance.csproj", "{6C911AF0-C938-4077-A194-99B174F559EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_InsuranceBadge", "03_Insurance\03_InsuranceBadge.csproj", "{6C911AF0-C938-4077-A194-99B174F559EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_InsuranceUI", "03_InsuranceUI\03_InsuranceUI.csproj", "{4E9D12E2-583C-4CC2-9A21-889E179B6057}"
 EndProject

@@ -17,7 +17,7 @@ namespace _02_Claims
         public bool IsValid { get; set; }
         public ClaimProperties() { }
 
-        public ClaimProperties(int claimID, string claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, bool isValid)
+        public ClaimProperties(int claimID, string claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim)
         {
             ClaimID = claimID;
             ClaimType = claimType;
@@ -25,7 +25,17 @@ namespace _02_Claims
             ClaimAmount = claimAmount;
             DateOfIncident = dateOfIncident;
             DateOfClaim = dateOfClaim;
-            IsValid = isValid;
         }
+
+        if(dateOfClaim-datOfIncident <= 30days)
+            {
+            return (isValid) = false;
+            }
+            else 
+            {
+            return true;
+            }
+
     }
+
 }

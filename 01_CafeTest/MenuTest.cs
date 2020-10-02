@@ -6,12 +6,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace _01_CafeTest
 {
     [TestClass]
-    public class MenuTest
+    private class MenuTest
     {
-        [TestMethod]
+        [TestInitialize]
+        private void Arrange()
+        {
+            MenuContent _dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
+            MenuContent _menuRepo.AddContentToRepo(_dishObject);
+
+
+            [TestMethod]
         
         //Add a new object
-        public void AddToRepo_ShouldGetCorrectBool()
+        private void AddToRepo_ShouldGetCorrectBool()
         {
             //arrange
             MenuContent content = new MenuContent();
@@ -24,28 +31,28 @@ namespace _01_CafeTest
         }
         //Get menu 
         [TestMethod]
-        public void GetRepository_ShouldReturnCorrectRepo()
+        private void GetRepository_ShouldReturnCorrectRepo()
         {
             //arrange
-            MenuContent newObject = new MenuContent();
+            MenuContent _newObject = new MenuContent();
             MenuRepo repo = new MenuRepo();
 
-            repo.AddContentToRepo(newObject);
+            repo.AddContentToRepo(_newObject);
             //act
             List<MenuContent> listOfDishes = repo.GetContents();
             //assert
-            bool repoHasContent = listOfDishes.Contains(newObject);
+            bool repoHasContent = listOfDishes.Contains(_newObject);
             Assert.IsTrue(repoHasContent);
 
         }
         
-        private MenuContent _content;
+        private MenuContent(_content);
         private MenuRepo _repo;
         [TestInitialize]
 
         //Delete object
         [TestMethod]
-        public void DeleteExistingContent_ShouldReturnTrue()
+        private void DeleteExistingContent_ShouldReturnTrue()
         {
             //arrange
             MenuContent foundContent = _repo.GetContentByName("Sesame chicken");

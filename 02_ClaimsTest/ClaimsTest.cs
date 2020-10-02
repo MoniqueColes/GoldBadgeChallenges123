@@ -5,21 +5,59 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace _02_ClaimsTest
 {
     [TestClass]
-    public class ClaimsTest
+    public class MenuTest
     {
+     
+        //get list of claims
         [TestMethod]
-        public void ClaimPropertyInfo()
+        public void GetMethods_ShouldReturnCorrectMethods()
         {
+            //arrange
+            ClaimProperties newObject = new ClaimProperties();
+            ClaimProperties repo = new ClaimProperties();
 
-            ClaimProperties claimObject = new ClaimProperties(1, "Car", "Car Accident on 465", 400.00, 250418, 270418, true);
+            repo.AddContentToMethods(newObject);
+            //act
+            List<ClaimContent> listOfClaims = repo.GetContents();
+            //assert
+            bool repoHasContent = listOfClaims.Contains(newObject);
+            Assert.IsTrue(repoHasContent);
 
-            ClaimProperties claimObject2 = new ClaimProperties(2, "Home", "House fire in kitchen.", 4000.00, 110418, 120418, true);
+        }
 
-            ClaimProperties claimObject3 = new ClaimProperties(3, "Theft", "Stolen pancakes.", 4.00, 270418, 010618, false);
 
+        //add a new claim
+        public void AddToClaimMethods_ShouldGetCorrectBool()
+        {
+            //arrange
+            ClaimProperties content = new ClaimProperties();
+            ClaimProperties repository = new ClaimProperties();
+            //act
+            bool addResult = repository.AddContentToMethods(content);
+            //assert
+            Assert.IsTrue(addResult);
+
+        }
+
+        //call next claim
+        public void GetNextClaim_ShouldGetCorrectBool()
+        {
+            //arrange
+            ClaimProperties content = new ClaimProperties();
+            //act
+            bool
+
+            //assert
+            Assert.IsTrue();
 
 
 
         }
+        
+
+        private ClaimProperties _content;
+        private ClaimMethods _repo;
+        [TestInitialize]
+
     }
 }
