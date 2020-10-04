@@ -6,68 +6,40 @@ using System.Threading.Tasks;
 
 namespace _02_Claims
 {
-    class ClaimMethods
+    public class ClaimMethods
     {
         //new content
         protected readonly List<ClaimProperties> _contentRepo = new List<ClaimProperties>();
+        //create queue
+        Queue<int> claimQueue = new Queue<int>();
         //add new content
         public bool AddContentToRepo(ClaimProperties content)
         {
             int startingCount = _contentRepo.Count;
             _contentRepo.Add(content);
             bool wasAdded = (_contentRepo.Count > startingCount) ? true : false;
+
+            claimQueue.Enqueue(content.ClaimID);
             return wasAdded;
         }
 
+        //pull next content from queue
+        public int ClaimQueueUp()
+        {
+            return claimQueue.Peek();
+        }
 
         //show content
-        public List<ClaimProperties> GetContents()
+        public List<ClaimProperties> GetClaims()
         {
-            return _contentRepo;
+           return _contentRepo;
         }
 
-        public ClaimProperties GetContentByName(string name)
+        //dequeue
+        public void ClaimDequeue()
         {
-            foreach (ClaimProperties oneContent in _contentRepo)
-            {
-                if (oneContent.ClaimID == claimID)
-                {
-                    return oneContent;
-                }
-            }
-            return null;
+            int firstClaim = claimQueue.Dequeue();
         }
-
-        //update content
-        public bool UpdateExistingContent(string originalClaimID, ClaimMethods newContent)
-        {
-            ClaimMethods oldContent = GetContentByClaimID(originalClaimID);
-
-            if (oldContent != null)
-            {
-                
-                oldContent.ClaimID = newContent.ClaimID;
-                oldContent.ClaimType = newContent.ClaimType;
-                oldContent.Description = newContent.Description;
-                oldContent.ClaimAmount = newContent.ClaimAmount;
-                oldContent.DateOfIncident = newContent.DateOfIncident;
-                oldContent.DateOfClaim = newContent.DateOfClaim;
-                oldContent.IsValid = newContent.IsValid;
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        //delete content 
-        public bool DeleteExistingContent(ClaimProperties existingContent)
-        {
-            bool deleteResult = _contentDirectory.Remove(existingContent);
-            return deleteResult;
-        }
-
 
     }
 }

@@ -6,35 +6,47 @@ using System.Threading.Tasks;
 
 namespace _02_Claims
 {
+    public enum ClaimType 
+    {
+        Car = 1,
+        Home,
+        Theft
+    }
     public class ClaimProperties
     {
         public int ClaimID { get; set; }
-        public string ClaimType { get; set; }
+        public ClaimType TypeOfClaim { get; set; }
         public string Description { get; set; }
         public double ClaimAmount { get; set; }
         public DateTime DateOfIncident { get; set; }
         public DateTime DateOfClaim { get; set; }
-        public bool IsValid { get; set; }
         public ClaimProperties() { }
 
-        public ClaimProperties(int claimID, string claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim)
+        public ClaimProperties(int claimID, ClaimType typeOfClaim, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim)
         {
             ClaimID = claimID;
-            ClaimType = claimType;
+            TypeOfClaim = typeOfClaim;
             Description = description;
             ClaimAmount = claimAmount;
             DateOfIncident = dateOfIncident;
             DateOfClaim = dateOfClaim;
         }
 
-        if(dateOfClaim-datOfIncident <= 30days)
+        public bool IsValid
+        {
+            get
             {
-            return (isValid) = false;
+                TimeSpan timeSpan = DateOfClaim - DateOfIncident;
+                if (timeSpan.TotalDays <= 30)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else 
-            {
-            return true;
-            }
+        }
 
     }
 

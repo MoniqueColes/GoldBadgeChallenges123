@@ -5,20 +5,33 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace _02_ClaimsTest
 {
     [TestClass]
-    public class MenuTest
+    public class ClaimsTest
     {
-     
+        public readonly ClaimMethods _claimMethods = new ClaimMethods();
+        public void SeedContent()
+        {
+            ClaimProperties _claimObject = new ClaimProperties(1, ClaimType.Car, "Car Accident on 465.", 400.00, new DateTime(2018, 04, 25), new DateTime(2018, 04, 27));
+            _claimMethods.AddContentToRepo(_claimObject);
+            ClaimProperties _claimObject2 = new ClaimProperties(2, ClaimType.Home, "House fire in kitchen.", 4000.00, new DateTime(2018, 04, 11), new DateTime(2018, 04, 12));
+            _claimMethods.AddContentToRepo(_claimObject2);
+            ClaimProperties _claimObject3 = new ClaimProperties(3, ClaimType.Theft, "Stolen pancakes.", 4.00, new DateTime(2018, 04, 27), new DateTime(2018, 06, 01));
+            _claimMethods.AddContentToRepo(_claimObject3);
+        }
+
+
+
+
         //get list of claims
         [TestMethod]
-        public void GetMethods_ShouldReturnCorrectMethods()
+        public void GetClaims_ShouldReturnCorrectClaims()
         {
             //arrange
             ClaimProperties newObject = new ClaimProperties();
-            ClaimProperties repo = new ClaimProperties();
+            ClaimMethods repo = new ClaimMethods();
 
-            repo.AddContentToMethods(newObject);
+            _claimMethods.AddContentToRepo(newObject);
             //act
-            List<ClaimContent> listOfClaims = repo.GetContents();
+            List<ClaimProperties> listOfClaims = _claimMethods.GetClaims();
             //assert
             bool repoHasContent = listOfClaims.Contains(newObject);
             Assert.IsTrue(repoHasContent);
@@ -51,13 +64,6 @@ namespace _02_ClaimsTest
             Assert.IsTrue();
 
 
-
         }
-        
-
-        private ClaimProperties _content;
-        private ClaimMethods _repo;
-        [TestInitialize]
-
     }
 }

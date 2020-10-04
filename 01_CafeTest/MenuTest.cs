@@ -6,17 +6,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace _01_CafeTest
 {
     [TestClass]
-    private class MenuTest
+    public class MenuTest
     {
+        public readonly MenuRepo _menuRepo = new MenuRepo();
+
         [TestInitialize]
         private void Arrange()
         {
             MenuContent _dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
-            MenuContent _menuRepo.AddContentToRepo(_dishObject);
+            _menuRepo.AddContentToRepo(_dishObject);
+            MenuContent _dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
+            _menuRepo.AddContentToRepo(_dishObject2);
+        }
 
-
-            [TestMethod]
-        
+        [TestMethod]
         //Add a new object
         private void AddToRepo_ShouldGetCorrectBool()
         {
@@ -45,19 +48,15 @@ namespace _01_CafeTest
             Assert.IsTrue(repoHasContent);
 
         }
-        
-        private MenuContent(_content);
-        private MenuRepo _repo;
-        [TestInitialize]
 
         //Delete object
         [TestMethod]
         private void DeleteExistingContent_ShouldReturnTrue()
         {
             //arrange
-            MenuContent foundContent = _repo.GetContentByName("Sesame chicken");
+            MenuContent foundContent = _menuRepo.GetContentByName("Sesame chicken");
             //act
-            bool deleteResult = _repo.DeleteExistingContent(foundContent);
+            bool deleteResult = _menuRepo.DeleteExistingContent(foundContent);
             //assert
             Assert.IsTrue(deleteResult);
         }

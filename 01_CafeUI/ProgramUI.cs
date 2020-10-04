@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 namespace _01_CafeUI
 {
     public class ProgramUI
-
-
     {
         public readonly MenuRepo _menuRepo = new MenuRepo();
         public ProgramUI() { }

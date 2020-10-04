@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 namespace _02_ClaimsUI
 {
     public class ProgramUI
-
     {
-        public readonly ClaimProperties _claimProperties = new ClaimProperties();
+        public readonly ClaimMethods _claimMethods = new ClaimMethods();
         public ProgramUI() { }
         public void RunMenu()
         {
@@ -19,15 +18,12 @@ namespace _02_ClaimsUI
 
             while (keepRunning)
             {
-                public ClaimProperties(int claimID, string claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, bool isValid)
                 Console.Clear();
                 Console.WriteLine("Please enter a number from the selection below. \n" +
                     "1. See all claims \n" +
                     "2. Take care of next claim \n" +
                     "3. Enter a new claim \n" +
                     "4. Exit");
-
-
 
                 string userInput = Console.ReadLine();
                 switch (userInput)
@@ -64,11 +60,12 @@ namespace _02_ClaimsUI
             Console.Clear();
             //GET the items
             List<ClaimProperties> listOfContent = _claimMethods.GetClaims();
+            
             //Take EACH item and display property values
             foreach (ClaimProperties content in listOfContent)
             {
                 Console.WriteLine($"#{content.ClaimID} \n" +
-                $"{content.ClaimType} \n" +
+                $"{content.TypeOfClaim} \n" +
                 $"{content.Description} \n" +
                 $"${content.ClaimAmount}\n" +
                 $"{content.DateOfIncident}\n" +
@@ -80,40 +77,22 @@ namespace _02_ClaimsUI
             Console.ReadKey();
         }
 
-
-
-
         //show next claim
         public void ShowNextClaim()
         {
             Console.Clear();
-            for (int claimID = 1; claimID <= endNumber; claimID++1)
+            int ClaimID =  _claimMethods.ClaimQueueUp();
+            Console.WriteLine(ClaimID);
+
+            Console.WriteLine("Do you want to address this claim now? (y/n)");
+            string myinput = Console.ReadLine();
+            if (myinput == "y")
             {
-                if (     )
-                {
-
-
-                }
-
-
+                _claimMethods.ClaimDequeue();
+                Console.WriteLine("Claim removed. Press any key to continue...");
+                Console.ReadKey();
             }
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void AddToClaim()
         //add a claim
@@ -125,33 +104,31 @@ namespace _02_ClaimsUI
             //claim ID
             Console.WriteLine("Please enter the claim ID.");
             string contentClaimID = Console.ReadLine();
-            content.ClaimID = contentClaimID;
+            content.ClaimID = Int32.Parse(contentClaimID);
             //claim type
-            Console.WriteLine($"Please enter the claim type for {content.ClaimID}");
-            string contentName = Console.ReadLine();
-            content.ClaimType = contentClaimType;
+            Console.WriteLine($"Please enter the claim type. Press 1 for Car, 2 for Home, 3 for Theft.");
+            string contentType = Console.ReadLine();
+            int typeID = int.Parse(contentType);
+            content.TypeOfClaim = (ClaimType)typeID;
             //claim description
-            Console.WriteLine($"Please enter the description for {content.ClaimID}");
+            Console.WriteLine($"Please enter the description.");
             string contentDescription = Console.ReadLine();
             content.Description = contentDescription;
             //claim amount
-            Console.WriteLine($"Please enter the claim amount for {content.ClaimID}");
+            Console.WriteLine($"Please enter the claim amount.");
             string contentClaimAmount = Console.ReadLine();
-            content.ClaimAmount = contentClaimAmount;
+            content.ClaimAmount = int.Parse(contentClaimAmount);
             //date of incident
-            Console.WriteLine($"Please enter the date of incident for {content.ClaimID}");
-            DateTime.DateOfIncident = Convert.ToString(Console.ReadLine());
-            content.DateOfIncident = contentDateOfIncident;
+            Console.WriteLine($"Please enter the date of incident. (yyyy, mm, dd)");
+            DateTime DateOfIncident = Convert.ToDateTime(Console.ReadLine());
+            content.DateOfIncident = DateOfIncident;
             //date of claim
-            Console.WriteLine($"Please enter the date of claim for {content.ClaimID}");
-            DateTime.DateOfClaim = Convert.ToString(Console.ReadLine());
-            content.DateOfClaim = contentDateOfClaim;
-            //is valid
-            //Console.WriteLine($"Please enter the date of incident for {content.ClaimID}");
-            //DateTime.DateOfIncident = Convert.ToString(Console.ReadLine());
-            //content.DateOfIncident = contentDateOfIncident;
+            Console.WriteLine($"Please enter the date of claim.(yyyy, mm, dd)");
+            DateTime DateOfClaim = Convert.ToDateTime(Console.ReadLine());
+            content.DateOfClaim = DateOfClaim;
+            
             //add item 
-            if (_claimMethods.AddContentToMethods(content))
+            if (_claimMethods.AddContentToRepo(content))
             {
                 Console.WriteLine($"Item(s) added.");
             }
@@ -168,13 +145,12 @@ namespace _02_ClaimsUI
 
         public void SeedContent()
         {
-
-            ClaimProperties _claimObject = new ClaimProperties(1, "Car", "Car Accident on 465.", 400.00, new DateTime(2018, 04, 25), new DateTime(2018, 04, 27));
-
-            ClaimProperties _claimObject2 = new ClaimProperties(2, "Home", "House fire in kitchen.", 4000.00, new DateTime(2018, 04, 11), new DateTime(2018, 04, 12));
-
-            ClaimProperties _claimObject3 = new ClaimProperties(3, "Theft", "Stolen pancakes.", 4.00, new DateTime(2018, 04, 27), new DateTime(2018, 06, 01));
-
+            ClaimProperties _claimObject = new ClaimProperties(1, ClaimType.Car, "Car Accident on 465.", 400.00, new DateTime(2018, 04, 25), new DateTime(2018, 04, 27));
+            _claimMethods.AddContentToRepo(_claimObject);
+            ClaimProperties _claimObject2 = new ClaimProperties(2, ClaimType.Home, "House fire in kitchen.", 4000.00, new DateTime(2018, 04, 11), new DateTime(2018, 04, 12));
+            _claimMethods.AddContentToRepo(_claimObject2);
+            ClaimProperties _claimObject3 = new ClaimProperties(3, ClaimType.Theft, "Stolen pancakes.", 4.00, new DateTime(2018, 04, 27), new DateTime(2018, 06, 01));
+            _claimMethods.AddContentToRepo(_claimObject3);
         }
     }
 }
