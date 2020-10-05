@@ -6,29 +6,18 @@ using System.Threading.Tasks;
 
 namespace _03_Insurance
 {
-    public enum DoorAccessneedadictionary
-    { 
-    A1,
-    A2,
-    A3,
-    A4,
-    A5,
-    A6,
-    A7
-    }
     class BadgeProperties
     {
         public int BadgeID { get; set; }
-        public bool OtherDoor { get; set; }
-        
+        public string DoorNames { get; set; }
+
         public BadgeProperties() { }
 
-        public BadgeProperties(int badgeID, bool otherDoor)
+        public BadgeProperties(int badgeID, string doorNames)
         {
             BadgeID = badgeID;
-            OtherDoor = otherDoor;
+            DoorNames = doorNames;
         }
-
 
     }
 }
