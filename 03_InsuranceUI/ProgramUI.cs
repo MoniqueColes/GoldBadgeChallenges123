@@ -9,7 +9,7 @@ namespace _03_InsuranceUI
 {
     class ProgramUI
     {
-
+        private Dictionary<int, List<string>> _doorList = new Dictionary<int, List<string>>();
         public readonly BadgeMethods _badgeMethods = new BadgeMethods();
         public ProgramUI() { }
         public void RunMenu()
@@ -31,15 +31,15 @@ namespace _03_InsuranceUI
                 {
                     case "1":
                         //add a badge
-                        AddABadge();
+                        AddNewBadgeUI();
                         break;
                     case "2":
                         //edit a badge
-                        EditABadge();
+                        EditDoorAccessByBadgeIDUI();
                         break;
                     case "3":
                         //list all badges
-                        ListAllBadges();
+                        ListAllBadgesUI();
                         break;
                     case "4":
                         //exit
@@ -55,40 +55,46 @@ namespace _03_InsuranceUI
             }
         }
 
-
-        public void AddABadge()
+        public void AddNewBadgeUI()
         //add a badge
         {
             Console.Clear();
-            //user input
-            //badge ID
-            Console.WriteLine("Please enter the number on the badge:");
-            int BadgeID = Int32.Parse(Console.ReadLine());
-            //door type
-            Console.WriteLine($"Please enter the door that the badge needs access to:");
-            string Door = Console.ReadLine();
-            //more doors
-            Console.WriteLine($"Any other doors? (y/n)");
-            string moreDoors = Console.ReadLine();
-            while (moreDoors == "y")
-            {
-                Console.WriteLine($"Please enter the door that the badge needs access to:");
-                string NextDoor = Console.ReadLine();
-                Door = Door + ", " + NextDoor;
-                Console.WriteLine($"Any other doors? (y/n)");
-                moreDoors = Console.ReadLine();
-            }
-            _badgeMethods.DoorList.Add(BadgeID, Door);
-            
-            //add item 
-           // if (_badgeMethods.AddContentToMethods(content))
-            //{
-              //  Console.WriteLine($"Badge added.");
-            //}
-            //else
-            //{
-              //  Console.WriteLine("Add badge failed.");
-            //}
+            Console.WriteLine("Please enter badgeID to add a door:");
+            int keyBadgeID = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Now enter the first door.");
+            List<string> valueBadgeID = new List<string>();
+            valueBadgeID.Add(Console.ReadLine());
+
+                bool addNextDoor = true;
+                while (addNextDoor)
+                {
+
+                    Console.WriteLine("Add another Door? (y/n)");
+                    string userInput = Console.ReadLine();
+                    switch (userInput)
+                    {
+                        case "y":
+                            {
+                                Console.WriteLine("Please enter door to be added:");
+                                string doorNumber = Console.ReadLine();
+                                valueBadgeID.Add(doorNumber);
+                                break;
+                            }
+                        case "n":
+                            {
+                                addNextDoor = false;
+                                break;
+                            }
+
+                        default:
+                            {
+                                addNextDoor = false;
+                                break;
+                            }
+                    }
+                }
+                _badgeMethods.AddNewBadge(keyBadgeID, valueBadgeID);
 
             //a new content with properties filled out by user 
             //Pass that to the add method in our methods 
@@ -96,47 +102,100 @@ namespace _03_InsuranceUI
             Console.ReadKey();
         }
 
-
-
-        public void ListAllBadges()
+        public void ListAllBadgesUI()
         {
             Console.Clear();
             //display badges and doors
-            foreach (KeyValuePair<int, string> badgeID in _badgeMethods.DoorList)
+            foreach (KeyValuePair<int, List<string>> badgeID in _doorList)
             {
-                Console.WriteLine($"BadgeID: {badgeID.Key}, Door Access: {badgeID.Value} \n" +
-                    $"-------------------");
+                Console.WriteLine($"BadgeID: {badgeID.Key}, Door Access: \n");
+                //Take each badge and display door values
+                foreach (string door in badgeID.Value)
+                {
+                    Console.WriteLine($"{door} \n");
+                }
+
             }
             Console.WriteLine("Press any key to continue....");
             Console.ReadKey();
         }
 
-        public void EditContentByBadgeID()
+        public void EditDoorAccessByBadgeIDUI()
         {
             Console.Clear();
-            Console.WriteLine(BadgeID);
+            Console.WriteLine("Please enter the badge number to be updated:");
+            int BadgeID = Int32.Parse(Console.ReadLine());
+            //door access
+            Console.WriteLine($"{BadgeID} has access to doors {_doorList}.");
+            Console.WriteLine("What would you like to do? \n" +
+                "1. Add a door \n" +
+                "2. Remove a door \n");
 
-            Console.WriteLine("What is the badge number to update?");
-            string myinput = Int32.Parse(doorBadgeID);
-                Console.ReadLine();
-            Console.WriteLine("{BadgeID} has access to doors { });
-
-
-
-
-
-
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    AddADoorUI();
+                    break;
+                case "2":
+                    RemoveADoorUI();
+                    break;
+            }
         }
 
+        public void AddADoorUI()
+        {
+            Console.WriteLine("Please enter badgeID to add a door:");
+            int keyBadgeID = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("Now enter the first door.");
+            List<string> valueBadgeID = new List<string>();
+            valueBadgeID.Add(Console.ReadLine());
+
+            bool addNextDoor = true;
+            while (addNextDoor)
+            {
+
+                Console.WriteLine("Add another Door? (y/n)");
+                string userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "y":
+                        {
+                            Console.WriteLine("Please enter door to be added:");
+                            string doorNumber = Console.ReadLine();
+                            valueBadgeID.Add(doorNumber);
+                            break;
+                        }
+                    case "n":
+                        {
+                            addNextDoor = false;
+                            break;
+                        }
+
+                    default:
+                        {
+                            addNextDoor = false;
+                            break;
+                        }
+                }
+            }
+            _badgeMethods.AddNewBadge(keyBadgeID, valueBadgeID);
+        }
+
+        public void RemoveADoorUI()
+        {
+            Console.WriteLine("Please enter badgeID to add a door:");
+            int keyBadgeID = int.Parse(Console.ReadLine());
+            Console.WriteLine("Which door access would you like to remove?");
+            _doorList[keyBadgeID].Remove(Console.ReadLine());
+        }
 
         public void SeedContent()
         {
-            _badgeMethods.DoorList.Add(12345, "A7");
-            _badgeMethods.DoorList.Add(22345, "A1, A4, B1, B2");
-            _badgeMethods.DoorList.Add(32345, "A4, A5");
+            _doorList.Add(12345, new List<string> { "A7" });
+            _doorList.Add(22345, new List<string> { "A1", "A4", "B1", "B2"});
+            _doorList.Add(32345, new List<string> { "5" });
         }
-
-
     }
 }

@@ -10,15 +10,6 @@ namespace _01_CafeTest
     {
         public readonly MenuRepo _menuRepo = new MenuRepo();
 
-        [TestInitialize]
-        private void Arrange()
-        {
-            MenuContent _dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
-            _menuRepo.AddContentToRepo(_dishObject);
-            MenuContent _dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
-            _menuRepo.AddContentToRepo(_dishObject2);
-        }
-
         [TestMethod]
         //Add a new object
         private void AddToRepo_ShouldGetCorrectBool()
@@ -39,6 +30,10 @@ namespace _01_CafeTest
             //arrange
             MenuContent _newObject = new MenuContent();
             MenuRepo repo = new MenuRepo();
+            MenuContent _dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
+            repo.AddContentToRepo(_dishObject);
+            MenuContent _dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
+            repo.AddContentToRepo(_dishObject2);
 
             repo.AddContentToRepo(_newObject);
             //act
@@ -55,8 +50,13 @@ namespace _01_CafeTest
         {
             //arrange
             MenuContent foundContent = _menuRepo.GetContentByName("Sesame chicken");
+            MenuRepo repo = new MenuRepo();
+            MenuContent _dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
+            repo.AddContentToRepo(_dishObject);
+            MenuContent _dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
+            repo.AddContentToRepo(_dishObject2);
             //act
-            bool deleteResult = _menuRepo.DeleteExistingContent(foundContent);
+            bool deleteResult = repo.DeleteExistingContent(foundContent);
             //assert
             Assert.IsTrue(deleteResult);
         }

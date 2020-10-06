@@ -1,0 +1,10 @@
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\bin\Debug\03_InsuranceUI.exe.config
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\bin\Debug\03_InsuranceUI.exe
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\bin\Debug\03_InsuranceUI.pdb
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\bin\Debug\03_Insurance.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\bin\Debug\03_Insurance.pdb
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\obj\Debug\03_InsuranceUI.csprojAssemblyReference.cache
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\obj\Debug\03_InsuranceUI.csproj.CoreCompileInputs.cache
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\obj\Debug\03_InsuranceUI.csproj.CopyComplete
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\obj\Debug\03_InsuranceUI.exe
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceUI\obj\Debug\03_InsuranceUI.pdb

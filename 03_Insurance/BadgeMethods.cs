@@ -4,44 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03_Insurance
+namespace _03_InsuranceBadge
 {
     public class BadgeMethods
+
     {
-        Dictionary<int, string> DoorList = new Dictionary<int, string>();
+        private Dictionary<int, List<string>> _doorList = new Dictionary<int, List<string>>();
 
-
-
-
-        //new content
-       // public bool AddABadge(BadgeProperties content)
-      //  {
-         //   int startingCount = DoorList.Count;
-          /*  DoorList.Add(content);
-            bool wasAdded = (_contentMethods.Count > startingCount) ? true : false;
-            return wasAdded;
+        // C create new badge
+        public void AddNewBadge(int badgeID, List<string> doors)
+        {
+            _doorList.Add(badgeID, doors);
         }
 
-        //show badges
-        public List<BadgeProperties> ListAllBadges()
+        // R show all badges
+        public Dictionary<int, List<string>> ListAllBadges()
         {
-            return _contentMethods;
+            return _doorList;
         }
 
-        public BadgeProperties EditContentByBadgeID(int BadgeID)
+        // U update badges
+        public void UpdateBadge(int badgeID, string door)
         {
-            foreach (BadgeProperties oneContent in _contentMethods)
+            foreach (int id in _doorList.Keys)
             {
-                if (oneContent.BadgeID == BadgeID)
+                if (badgeID == id)
                 {
-                    return oneContent;
+                    _doorList[id].Add(door);
                 }
             }
-            return null;
         }
-          */
 
+        // D delete badge
+        public void DeleteBadge(int badgeID)
+        {
+            _doorList.Remove(badgeID);
 
-
+        }
     }
 }

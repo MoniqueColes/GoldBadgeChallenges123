@@ -1,0 +1,6 @@
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_Insurance\bin\Debug\03_Insurance.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_Insurance\bin\Debug\03_Insurance.pdb
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_Insurance\obj\Debug\03_InsuranceBadge.csprojAssemblyReference.cache
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_Insurance\obj\Debug\03_InsuranceBadge.csproj.CoreCompileInputs.cache
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_Insurance\obj\Debug\03_Insurance.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_Insurance\obj\Debug\03_Insurance.pdb
