@@ -47,7 +47,5 @@ namespace _02_Claims
                 }
             }
         }
-
     }
-
 }

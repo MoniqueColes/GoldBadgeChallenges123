@@ -40,6 +40,5 @@ namespace _02_Claims
         {
             int firstClaim = claimQueue.Dequeue();
         }
-
     }
 }

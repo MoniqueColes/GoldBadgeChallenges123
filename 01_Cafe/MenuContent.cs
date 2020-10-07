@@ -10,13 +10,10 @@ namespace _01_Cafe
     {
         public string Number { get; set; }
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public string Ingredients { get; set; }
         public double Price { get; set; }
         public MenuContent() { }
-
         public MenuContent(string number, string name, string description, string ingredients, double price)
         {
             Number = number;
@@ -25,9 +22,5 @@ namespace _01_Cafe
             Ingredients = ingredients;
             Price = price;
         }
-
-
-        
-
     }
 }

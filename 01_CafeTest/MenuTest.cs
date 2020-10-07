@@ -8,24 +8,23 @@ namespace _01_CafeTest
     [TestClass]
     public class MenuTest
     {
-        public readonly MenuRepo _menuRepo = new MenuRepo();
-
+        //Add a new object 
         [TestMethod]
-        //Add a new object
-        private void AddToRepo_ShouldGetCorrectBool()
+        public void AddToRepo_ShouldGetCorrectBool()
         {
             //arrange
             MenuContent content = new MenuContent();
             MenuRepo repository = new MenuRepo();
+
             //act
             bool addResult = repository.AddContentToRepo(content);
+
             //assert
             Assert.IsTrue(addResult);
-
         }
         //Get menu 
         [TestMethod]
-        private void GetRepository_ShouldReturnCorrectRepo()
+        public void GetRepository_ShouldReturnCorrectRepo()
         {
             //arrange
             MenuContent _newObject = new MenuContent();
@@ -36,27 +35,27 @@ namespace _01_CafeTest
             repo.AddContentToRepo(_dishObject2);
 
             repo.AddContentToRepo(_newObject);
+
             //act
             List<MenuContent> listOfDishes = repo.GetContents();
+
             //assert
             bool repoHasContent = listOfDishes.Contains(_newObject);
             Assert.IsTrue(repoHasContent);
-
         }
 
         //Delete object
         [TestMethod]
-        private void DeleteExistingContent_ShouldReturnTrue()
+        public void DeleteExistingContent_ShouldReturnTrue()
         {
             //arrange
-            MenuContent foundContent = _menuRepo.GetContentByName("Sesame chicken");
             MenuRepo repo = new MenuRepo();
             MenuContent _dishObject = new MenuContent("#1", "Sesame Chicken", "Chicken in sesame sauce with vegetables.", "chicken, sesame sauce, broccoli, carrots, water chestnuts", 8.95);
             repo.AddContentToRepo(_dishObject);
-            MenuContent _dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
-            repo.AddContentToRepo(_dishObject2);
+            
             //act
-            bool deleteResult = repo.DeleteExistingContent(foundContent);
+            bool deleteResult = repo.DeleteExistingContent(_dishObject);
+
             //assert
             Assert.IsTrue(deleteResult);
         }

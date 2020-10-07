@@ -53,7 +53,6 @@ namespace _01_CafeUI
             }
         }
 
-       
         public void ShowAllContent()
         {
             Console.Clear();
@@ -160,6 +159,5 @@ namespace _01_CafeUI
             MenuContent _dishObject2 = new MenuContent("#2", "Beef Lo Mein", "Beef and noodles with vegetables.", "beef, lo mein sauce, broccoli, carrots, water chestnuts", 9.95);
             _menuRepo.AddContentToRepo(_dishObject2);
         }
-
     }
 }

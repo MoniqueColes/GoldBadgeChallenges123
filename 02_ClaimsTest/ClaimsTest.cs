@@ -23,6 +23,7 @@ namespace _02_ClaimsTest
 
             //act
             List<ClaimProperties> listOfClaims = repo.GetClaims();
+
             //assert
             bool repoHasContent = listOfClaims.Contains(_claimObject);
             Assert.IsTrue(repoHasContent);
@@ -35,8 +36,10 @@ namespace _02_ClaimsTest
             //arrange
             ClaimMethods repo = new ClaimMethods();
             ClaimProperties _claimObject = new ClaimProperties(1, ClaimType.Car, "Car Accident on 465.", 400.00, new DateTime(2018, 04, 25), new DateTime(2018, 04, 27));
+
             //act
             bool addResult = repo.AddContentToRepo(_claimObject);
+
             //assert
             Assert.IsTrue(addResult);
         }
@@ -52,6 +55,7 @@ namespace _02_ClaimsTest
 
             //act
             int getNext = repo.ClaimQueueUp();
+
             //assert
             Assert.AreEqual(1, getNext);
         }

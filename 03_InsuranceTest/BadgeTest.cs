@@ -18,42 +18,51 @@ namespace _03_InsuranceTest
             repo.AddNewBadge(12345, new List<string> { "A7" });
 
             //assert
-            Assert.IsTrue(addResult);
+            Assert.AreEqual(1, repo.ListAllBadges().Count);
         }
 
-
         [TestMethod]
-        public void ListAllBadges_ShouldReturnCorrectBadges()
+        public void ListAllBadges_ShouldReturnOneBadge()
         {
             //arrange
             BadgeMethods repo = new BadgeMethods();
-            _doorList.Add(12345, new List<string> { "A7" });
-            _doorList.Add(22345, new List<string> { "A1", "A4", "B1", "B2" });
-            _doorList.Add(32345, new List<string> { "5" });
-            Dictionary<int, List<string>> _doorList = new Dictionary<int, List<string>>();
+            repo.AddNewBadge(22345, new List<string> { "A1", "A4", "B1", "B2" });
 
             //act
-            List<ClaimProperties> listOfClaims = repo.GetClaims();
+            Dictionary<int, List<string>> _doorList2 = repo.ListAllBadges();
+
             //assert
-            bool repoHasContent = listOfClaims.Contains(_claimObject);
-            Assert.IsTrue(repoHasContent);
+            Assert.AreEqual(1, _doorList2.Count);
         }
 
         [TestMethod]
         public void UpdateBadge_ShouldReturnCorrectBool()
         {
             //arrange
-            _doorList.Add(12345, new List<string> { "A7" });
+            BadgeMethods repo = new BadgeMethods();
+            Dictionary<int, List<string>> _doorList = repo.ListAllBadges();
+            _doorList.Add(22345, new List<string> { "A1", "A4", "B1", "B2" });
 
+            //act
+            repo.UpdateBadge(22345, "A7" );
 
+            //assert
+            Assert.AreEqual(5, _doorList[22345].Count);
         }
 
         [TestMethod]
         public void DeleteBadge_ShouldReturnCorrectBool()
         {
+            //arrange
+            BadgeMethods repo = new BadgeMethods();
+            Dictionary<int, List<string>> _doorList = new Dictionary<int, List<string>>();
+            _doorList.Add(12345, new List<string> { "A7" });
 
+            //act
+            repo.DeleteBadge(12345);
 
-
+            //assert
+            Assert.AreEqual(0, repo.ListAllBadges().Count);
         }
     }
 }

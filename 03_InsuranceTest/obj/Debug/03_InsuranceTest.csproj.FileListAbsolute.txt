@@ -1,0 +1,16 @@
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\obj\Debug\03_InsuranceTest.csprojAssemblyReference.cache
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\obj\Debug\03_InsuranceTest.csproj.CoreCompileInputs.cache
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\03_InsuranceTest.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\03_InsuranceTest.pdb
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\03_Insurance.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\03_Insurance.pdb
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\obj\Debug\03_InsuranceTest.csproj.CopyComplete
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\obj\Debug\03_InsuranceTest.dll
+C:\Users\Monique\Desktop\GoldBadge\GoldBadge_Challenges123\03_InsuranceTest\obj\Debug\03_InsuranceTest.pdb

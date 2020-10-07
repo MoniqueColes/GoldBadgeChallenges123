@@ -54,14 +54,13 @@ namespace _02_ClaimsUI
             }
         }
 
-
         public void ShowAllClaims()
         {
             Console.Clear();
-            //GET the items
+            //get the claims
             List<ClaimProperties> listOfContent = _claimMethods.GetClaims();
             
-            //Take EACH item and display property values
+            //Take each item and display property values
             foreach (ClaimProperties content in listOfContent)
             {
                 Console.WriteLine($"#{content.ClaimID} \n" +
@@ -138,7 +137,7 @@ namespace _02_ClaimsUI
             }
 
             //a new content with properties filled out by user 
-            //Pass that to the add method in our methods 
+            //pass that to the add method in our methods 
             Console.WriteLine("Press any key to continue....");
             Console.ReadKey();
         }
